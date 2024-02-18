@@ -1,0 +1,18 @@
+[general]
+status_path = "~/.cache/vdirsyncer/status/"
+
+[pair my_calendars]
+a = "my_calendars_local"
+b = "my_calendars_remote"
+collections = ["from a", "from b"]
+
+[storage my_calendars_local]
+type = "filesystem"
+path = ".local/share/calendars"
+fileext = ".ics"
+
+[storage my_calendars_remote]
+type = "caldav"
+url = "http://nextcloud.sladeer.com"
+username.fetch = ["shell", "echo $NEXTCLOUD_USERNAME"]
+password.fetch = ["shell", "echo $NEXTCLOUD_PASSWORD"]

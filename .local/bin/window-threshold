@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+# usage:
+# 	window-threshold command [threshold] [title]
+
+if [[ $# < 1 ]]; then
+	echo Specify program name 2> /dev/stderr
+	exit 1
+fi
+
+command=$1
+threshold=1
+count=$(hyprctl clients | grep "class: $command" | wc -l)
+
+if [[ $# > 1 ]]; then 
+	threshold=$2	
+fi
+if [[ $# > 2 ]]; then
+	count=$(hyprctl clients | grep "title: $3" | wc -l)
+fi
+
+for (( i = $count; i < $threshold; i++ )); do
+	($command &)
+done
+

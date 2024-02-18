@@ -1,0 +1,4 @@
+PS1='\[\033[0;35m\][\A] \w $ \[\033[0;1m\]'
+PS0='\[\033[0m\]'
+PATH=~/.local/bin:$PATH
+source ~/.config/secret_env
