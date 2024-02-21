@@ -12,7 +12,7 @@ fi
 
 cd $dotpath
 
-dotfiles=".local/bin $(find .config/* -maxdepth 0) $(find -name '.*' -type l | grep -v .gitignore) $(find -name '.*' -type f)"
+dotfiles=".local/bin $(find .config/* -maxdepth 0) $(find -name '.*' -type l) $(find -name '.*' -type f | grep -v .gitignore)"
 
 for i in $dotfiles; do
 	if test $(dirname $i) != '.'; then

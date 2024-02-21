@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+pacaur -Syu --noconfirm && \
+sudo flatpak update -y
