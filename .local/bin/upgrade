@@ -1,4 +1,9 @@
 #!/usr/bin/bash
-
-pacaur -Syu --noconfirm && \
-sudo flatpak update -y
+if test $(id -u) == 0; then
+	echo Can\'t run upgrade as root!
+	exit 1
+fi
+sudo backup && \
+systemd-inhibit --why="System upgrade in progress!" sudo pacman -Syu --noconfirm && \
+systemd-inhibit --why="Flatpak upgrade in progress!" sudo flatpak update -y
+systemd-inhibit --why="AUR upgrade in progress!" pacaur -Syu --noconfirm && \

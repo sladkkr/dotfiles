@@ -19,7 +19,7 @@ lsp.setup()
 
 mason.setup({})
 mason_lsp.setup({
-	ensure_installed = {'pyright', 'lua_ls', 'rust_analyzer', 'clangd'},
+	ensure_installed = {'pyright', 'lua_ls', 'rust_analyzer', 'clangd', 'nim_langserver'},
 	handlers = {
 		lsp.default_setup,
 	},

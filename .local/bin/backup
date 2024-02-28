@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+systemd-inhibit --why="Backup in progress!" borg create --list --verbose --compression zlib,9 --exclude-from /root/borg_exclude /backup::$(borg list /backup | wc -l) /
