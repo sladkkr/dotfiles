@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 if test $# -lt 1 || test $# -gt 2; then
 	echo Usage: scaffold dotfiles_path [home_path]
 	exit 1
