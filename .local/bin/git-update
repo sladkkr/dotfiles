@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Commits and pushes changes to upstream with commit count as id.
+cd $1
+count=$(git rev-list --count main)
+
+if test $? -ne 0; then
+	echo Usage: $(basename $0) path-to-git-repository
+	exit 1
+fi
+
+git add --all
+git commit -m $count
+
+if test $? -ne 0; then
+	exit 0
+fi
+
+git push
