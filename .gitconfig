@@ -3,3 +3,5 @@
 [user]
 	name = sladkkr
 	email = klimczakkarol@outlook.com
+[pull]
+	rebase = false

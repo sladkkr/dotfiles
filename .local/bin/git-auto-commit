@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Usage git-auto-commit path-to-repository
+
+cd $1
+git add --all
+
+if test $? -ne 0; then
+	exit 1
+fi
+
+git commit -m $(git rev-list --count --all)
+git push 
