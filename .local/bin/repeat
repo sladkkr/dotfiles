@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if test $# -lt 2 || test $1 -lt 1; then
+	echo Usage: $(basename $0) number-of-repetitions command
+	exit 1
+fi
+
+repetitions=$1
+shift
+
+for ((i=0;i<$repetitions;i++)); do
+	$@
+done
