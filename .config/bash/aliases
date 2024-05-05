@@ -2,4 +2,4 @@
 alias ls='eza'
 alias grep='grep --color=auto'
 alias mac='. mac'
-alias nixos-edit='nvim ~/projekty/nixos-configuration && sudo nixos-rebuild switch'
+alias nixos-edit='code ~/projekty/nixos-configuration && sudo nixos-rebuild switch'
