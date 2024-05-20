@@ -1,6 +1,9 @@
+# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 [[ $DISPLAY ]] && shopt -s checkwinsize
+
+PS1='[\u@\h \W]\$ '
 
 case ${TERM} in
   Eterm*|alacritty*|aterm*|foot*|gnome*|konsole*|kterm*|putty*|rxvt*|tmux*|xterm*)
@@ -16,5 +19,5 @@ if [[ -r /usr/share/bash-completion/bash_completion ]]; then
   . /usr/share/bash-completion/bash_completion
 fi
 
-. ~/.config/bash/aliases
-. ~/.config/bash/environment
+source $HOME/.config/bash/aliases
+source $HOME/.config/bash/environment

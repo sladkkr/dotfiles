@@ -1,4 +1,29 @@
-PS1='\[\033[0;35m\][\A] \w $ \[\033[0;1m\]'
+#!/usr/bin/env bash
+
+sleep 1
+
+function print_hline {
+	if [[ $# -lt 1 ]]; then
+		echo 'You need to provide width in characters!'
+		exit 1
+	fi
+
+	printf '█%.0s' $(seq 1 $1)
+}
+
+function print_separator {
+	local DATE="$(date +%H:%M)"
+	local HALF_WIDTH=$(( ($(tput cols) - ${#DATE} - 2) / 2 ))
+	local RESULT="$(print_hline $HALF_WIDTH) $DATE $(print_hline $HALF_WIDTH)"
+	printf '%s %s %s' $RESULT
+
+	if [[ ${#RESULT} -lt $(tput cols) ]]; then
+		print_hline 1
+	fi
+
+}
+
+PS1='\[\033[0;35m\]$(print_separator)\n\w $ \[\033[0;1m\]'
 PS0='\[\033[0m\]'
 PATH=~/.local/bin:$PATH
 source ~/.config/secret_env
