@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 alias ls='eza'
+alias ll='eza -l'
+alias la='eza -la'
 alias grep='grep --color=auto'
 alias mac='. mac'
 alias nixos-edit='code ~/projekty/nixos-configuration && sudo nixos-rebuild switch'
