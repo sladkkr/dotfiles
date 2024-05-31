@@ -12,7 +12,8 @@ function print_blank {
 }
 
 function print_separator {
-	local DATE=$(date +%H:%M)
+	#local DATE=$(date +%H:%M)
+	local DATE=$(pwd)
 	local HALF_WIDTH=$(( ($(tput cols) - ${#DATE}) / 2 ))
 	local RESULT="$(print_blank $HALF_WIDTH)$DATE$(print_blank $HALF_WIDTH)"
 
@@ -23,7 +24,7 @@ function print_separator {
 	fi
 }
 
-PS1='\[\033[7;35m\]$(print_separator)\[\033[0;35m\]\w $ \[\033[0;1m\]'
+PS1='\[\033[7;35m\]$(print_separator)\[\033[0;35m\]>>> \[\033[0m\]'
 PS0='\[\033[0m\]'
 PATH=$HOME/.nimble/bin:$HOME/.local/bin:$PATH
 source ~/.config/secret_env
