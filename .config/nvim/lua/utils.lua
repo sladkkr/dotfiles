@@ -8,7 +8,8 @@ local mapping = {
 		rust = function() vim.cmd'!cargo run' end
 	},
 	associated = {
-		cpp = function() vim.cmd'ClangdSwitchSourceHeader' end
+		cpp = function() vim.cmd'ClangdSwitchSourceHeader' end,
+		c = function() vim.cmd'ClangdSwitchSourceHeader' end
 	}
 }
 

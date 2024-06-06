@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [[ $# -lt 1 ]]; then
+	echo 'You need to provide path to new header file!'
+	exit 1
+fi
+
+DEFINE=$(echo $1 | tr . _ | tr / _ | tr [a-z] [A-Z])
+echo "#ifndef $DEFINE" > $1
+echo "#define $DEFINE" >> $1
+echo >> $1
+echo "#endif // $DEFINE" >> $1
