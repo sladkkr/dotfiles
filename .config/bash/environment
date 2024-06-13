@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
+echo "WAIT FOR TERMINAL INITIALIZATION"
 sleep 1
+clear
 
 function print_blank {
 	if [[ $# -lt 1 ]]; then
