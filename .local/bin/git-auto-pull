@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+HELP='Usage: git-auto-pull path-to-repository'
+
+if [[ $# -lt 1 ]]; then
+	echo $HELP
+	exit 1
+fi
+
+cd $1 && \
+git fetch && \
+git pull
