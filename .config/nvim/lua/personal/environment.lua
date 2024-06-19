@@ -1,4 +1,4 @@
-vim.cmd'colo onedark_dark'
+vim.cmd'colo onedark'
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.bo.tabstop = 4
