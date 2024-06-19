@@ -1,0 +1,11 @@
+[Unit]
+Description=Keep dotfiles in sync
+
+[Service]
+Type=oneshot
+ExecStart=/home/karol/.local/bin/git-auto-pull /home/karol/repozytoria/dotfiles
+ExecStop=/home/karol/.local/bin/git-auto-commit /home/karol/repozytoria/dotfiles
+RemainAfterExit=true
+
+[Install]
+WantedBy=default.target
