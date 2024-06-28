@@ -1,0 +1,11 @@
+[Unit]
+Description=Keep notes in sync
+
+[Service]
+Type=oneshot
+ExecStart=/home/karol/.local/bin/git-auto-pull /home/karol/repozytoria/notes
+ExecStop=/home/karol/.local/bin/git-auto-commit /home/karol/repozytoria/notes
+RemainAfterExit=true
+
+[Install]
+WantedBy=default.target
