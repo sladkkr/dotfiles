@@ -1,4 +1,4 @@
-vim.cmd'colo onedark'
+vim.cmd'colo kanagawa'
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.bo.tabstop = 4
