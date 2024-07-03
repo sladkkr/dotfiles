@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-echo "WAIT FOR TERMINAL INITIALIZATION"
-sleep 1
-clear
+#echo "WAIT FOR TERMINAL INITIALIZATION"
+#sleep 1
+#clear
 
 function print_blank {
 	if [[ $# -lt 1 ]]; then
@@ -30,4 +30,5 @@ PS1='\[\033[7;35m\]$(print_separator)\[\033[0;35m\]● \[\033[0m\]'
 PS0='\[\033[0m\]'
 PATH=$HOME/.nimble/bin:$HOME/.local/bin:$PATH
 DOTNET_SYSTEM_NET_DISABLEIPV6=1
+PS1='\[\033[0m\]C:$PWD>'
 source ~/.config/secret_env
