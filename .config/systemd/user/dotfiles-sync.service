@@ -3,8 +3,8 @@ Description=Keep dotfiles in sync
 
 [Service]
 Type=oneshot
-ExecStart=/home/karol/.local/bin/git-auto-pull /home/karol/repozytoria/dotfiles
-ExecStop=/home/karol/.local/bin/git-auto-commit /home/karol/repozytoria/dotfiles
+ExecStart=/home/karol/.local/bin/git-auto-pull /home/karol/repos/dotfiles
+ExecStop=/home/karol/.local/bin/git-auto-commit /home/karol/repos/dotfiles
 RemainAfterExit=true
 
 [Install]

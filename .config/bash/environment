@@ -26,7 +26,7 @@ function print_separator {
 	fi
 }
 
-PS1='\[\033[0;7m\]$(print_separator)\[\033[0m\]● \[\033[0m\]'
+PS1='\[\033[0;91;7m\]$(print_separator)\[\033[0;91m\]● \[\033[0m\]'
 PS0='\[\033[0m\]'
 PATH=$HOME/.nimble/bin:$HOME/.local/bin:$PATH
 DOTNET_SYSTEM_NET_DISABLEIPV6=1

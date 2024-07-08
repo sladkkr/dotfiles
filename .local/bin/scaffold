@@ -1,25 +1,22 @@
 #!/usr/bin/env bash
-if test $# -lt 1 || test $# -gt 2; then
-	echo Usage: scaffold dotfiles_path [home_path]
-	exit 1
-fi
 
-dotpath=$(realpath $1)
-targetpath=$(realpath ~)
-if test $# -gt 1; then
-	targetpath=$(realpath $2)
-fi
+REPO=$HOME/repos/dotfiles
+DENYLIST=".git .gitignore .gitconfig .local .config"
 
-cd $dotpath
+function link {
+	local FROM=$1
+	local TO=$2
 
-dotfiles=".local/bin $(find .config/* -maxdepth 0) $(find -name '.*' -type l) $(find -name '.*' -type f | grep -v .gitignore)"
+	for f in $(ls $FROM); do
+		if [[ $DENYLIST =~ $f ]]; then
+			continue
+		fi
 
-for i in $dotfiles; do
-	if test $(dirname $i) != '.'; then
-		mkdir -p $targetpath/$(dirname $i)
-	fi
+		rm $TO/$f
+		ln -s $FROM/$f $TO/$f
+	done
+}
 
-	ln -s $(pwd)/$i $targetpath/$i
-done
-
-echo Done! Remember to create .config/secret_env
+link $REPO $HOME
+link {$REPO,$HOME}/.config
+link {$REPO,$HOME}/.local
