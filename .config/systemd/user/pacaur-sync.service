@@ -1,0 +1,10 @@
+[Unit]
+Description=Update local database of package manager.
+
+[Service]
+Type=oneshot
+ExecStart=pacaur -Sy
+RemainAfterExit=true
+
+[Install]
+WantedBy=default.target

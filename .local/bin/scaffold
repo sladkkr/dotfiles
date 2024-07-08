@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
 REPO=$HOME/repos/dotfiles
-DENYLIST=".git .gitignore .gitconfig .local .config"
+DENYLIST=".git .gitignore .gitconfig .local .config . .."
 
 function link {
 	local FROM=$1
 	local TO=$2
 
-	for f in $(ls $FROM); do
+	for f in $(ls -a $FROM); do
 		if [[ $DENYLIST =~ $f ]]; then
 			continue
 		fi
 
-		rm $TO/$f
+		trash-put $TO/$f
 		ln -s $FROM/$f $TO/$f
 	done
 }
