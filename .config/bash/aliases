@@ -13,4 +13,5 @@ alias uninstall='pacaur -Rscn --noconfirm'
 alias rm='trash-put'
 alias cat='bat'
 alias top='htop'
-
+alias vi='nvim'
+alias vim='nvim'
