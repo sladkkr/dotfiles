@@ -26,7 +26,21 @@ function print_separator {
 	fi
 }
 
-PS1='\[\033[0;91;7m\]$(print_separator)\[\033[0;91m\]● \[\033[0m\]'
+function color_code_per_hostname {
+	case $HOSTNAME in
+		'amber')
+			echo 33
+			;;
+		'cobalt')
+			echo 34
+			;;
+		*)
+			echo 31
+			;;
+	esac
+}
+
+PS1='\[\033[0;$(color_code_per_hostname);7m\]$(print_separator)\[\033[0;$(color_code_per_hostname)m\]●\[\033[0m\] '
 PS0='\[\033[0m\]'
 PATH=$HOME/.nimble/bin:$HOME/.local/bin:$PATH
 DOTNET_SYSTEM_NET_DISABLEIPV6=1

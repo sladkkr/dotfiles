@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 HELP='Usage: git-auto-pull path-to-repository'
 
 if [[ $# -lt 1 ]]; then
